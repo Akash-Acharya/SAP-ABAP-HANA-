@@ -1,0 +1,27 @@
+REPORT Z8040_ADBC.
+
+DATA : LV_STLNR TYPE STNUM.
+SELECT-OPTIONS : S_STLNR FOR LV_STLNR.
+
+
+
+TYPES: BEGIN OF ty_final,
+         STLNR TYPE STNUM,
+         STLAL TYPE STALT,
+         STLAN TYPE STLAN,
+         MATNR TYPE  MATNR,
+         STLTY TYPE  Z8040STLTY,
+         DATUV TYPE DATUV,
+         STKOZ TYPE CIM_COUNT,
+         BMEIN TYPE BASME,
+         PREIS TYPE CPREI,
+         STLKN TYPE STLKN,
+         PREIS1 TYPE CHAR20,
+END OF ty_final.
+
+*       *&---------------------------------------------------------------------*
+*        *& INTERNAL TABLE AND WORK AREAS
+*        *&---------------------------------------------------------------------*
+
+DATA : IT_TAB TYPE TABLE OF TY_FINAL,
+          WA_TAB TYPE TY_FINAL.
